@@ -1,0 +1,152 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+.main{
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(rgba(7,59,76,0.6), rgba(0,0,0,0.9)),
+  url(1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+.navbar{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: column;
+}
+.icon .logo{
+    color: #3c3cff;
+    font-size: 35px;
+    cursor: pointer;
+}
+.icon .logo:hover{
+    color: red;
+    transition: 0.5s;
+}
+.menu ul{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.menu ul li{
+    list-style: none;
+}
+.menu ul li a{
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.menu ul li a:hover{
+    color:#3c3cff;
+}
+.search{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.srch{
+    width: 150px;
+    max-width: 70vh;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #3c3cff;
+    color: white;
+    padding: 0 10px;
+    border-radius: 5px 0 0 5px;
+}
+.btn{
+    width: 70px;
+    height: 40px;
+    background: #3c3cff;
+    border: 1px;
+    border: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+}
+.btn:hover{
+    background: linear-gradient(#6c4bff, #3c3cff, #6c4bff);
+    color: fff;
+    transition: 0.3s;
+}
+@media (max-width:1024px){
+    .main{
+        background-position: center top;
+        background-size: cover;
+    }
+}
+@media (max-width:1024px){
+
+}
+@media (max-width:920px){
+    .main{
+        background-position: center top;
+        background-size: cover;
+    }
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .menu ul{
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+    .search{
+        width: 70%;
+        justify-content: flex-start;
+    }
+    .srch{
+        width: 70%;
+    }
+    .btn{
+        width: 25%;
+    }
+}
+
+@media (max-width: 480px){
+    .main{
+        background-position: center top;
+        background-size: cover;
+    }
+    .srch{
+        width: 65%;
+    }
+    .btn{
+        width: 30%;
+    }
+}
+.hamburger{
+    display: none;
+    cursor:pointer;
+    font-size: 30px;
+}
+.hamburger i{
+    color: white;
+}
+@media(max-width:760px){
+    .menu ul{
+        display: none;
+        flex-direction: column;
+        background: #6c4bff;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+}

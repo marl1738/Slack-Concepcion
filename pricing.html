@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Slack</title>
+    <link rel="stylesheet" href="design.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <input type="checkbox" id="menu-toggle">
+
+    <header class="navbar">
+        <div class="logo">Slack</div>
+
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav-links">
+            <a href="Slack.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="enterprise.html">Enterprise</a>
+            <a href="resources.html">Resources</a>
+            <a href="pricing.html">Pricing</a>
+
+            <div class="nav-buttons">
+                <a class="signin" href="#">Sign in</a>
+                <button class="btn-outline">Talk to Sales</button>
+                <button class="btn-primary">Try for Free</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Pricing</h1>
+            <p>Discover all the powerful Pricing Slack offers.</p>
+        </div>
+    </section>
+
+    <script>
+        function closeSignup() {
+            document.getElementById('signupModal').style.display = 'none';
+        }
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('menu-toggle').checked = false;
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('is-loaded');
+        });
+
+        document.addEventListener('click', function(e) {
+            var a = e.target.closest('a');
+            if (!a) return;
+            var href = a.getAttribute('href');
+            if (!href) return;
+            // ignore anchors, external links, mailto, tel, downloads, target="_blank"
+            if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') ||
+                href.startsWith('javascript:') || a.target === '_blank' || a.hasAttribute('download') ||
+                (href.indexOf('http') === 0 && href.indexOf(location.hostname) === -1)) {
+                return;
+            }
+            e.preventDefault();
+            document.body.classList.remove('is-loaded');
+            document.body.classList.add('is-exiting');
+            setTimeout(function() { location.href = href; }, 350);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slack</title>
+    <link rel="stylesheet" href="design.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Hidden checkbox for CSS toggle -->
+    <input type="checkbox" id="menu-toggle">
+
+    <header class="navbar">
+        <div class="logo">Slack </div>
+
+        <!-- Hamburger icon -->
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Navigation menu -->
+        <nav class="nav-links">
+            <a href="features.html">Features</a>
+            <a href= "solutions.html">Solutions</a>
+            <a href="enterprise.html">Enterprise</a>
+            <a href="resources.html">Resources</a>
+            <a href="pricing.html">Pricing</a>
+
+            <div class="nav-buttons">
+                <a class="signin" href="#" onclick="document.getElementById('loginModal').style.display='flex'; return false;">Sign in</a>
+                <button class="btn-outline" onclick="document.getElementById('loginModal').style.display='flex'">Talk to Sales</button>
+                <button class="btn-primary" onclick="document.getElementById('signupModal').style.display='flex'">Try for Free</button>
+            </div>
+        </nav>
+           <script>
+    function closeSignup() {
+        document.getElementById('signupModal').style.display = 'none';
+    }
+    
+    function closeLogin() {
+        document.getElementById('loginModal').style.display = 'none';
+    }
+</script>
+
+    </header>
+
+    <!-- Overlay for menu -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Made for people.<br>Built for productivity.</h1>
+            <p>Connect your team, organize your work, and move faster with Slack.</p>
+
+            <div class="hero-buttons">
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="" alt="">
+            <video autoplay muted loop playsinline>
+                <source src="hero@2x.webm" type="video/mp4">
+            </video>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="signupModal">
+        <div class="modal-box">
+            <span class="close" onclick="closeSignup()">&times;</span>
+
+            <h2>Create Account</h2>
+
+            <form id="signupForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+
+                <button type="submit" class="btn-primary big full">Sign Up</button>
+            </form>
+
+            <p class="small-text">Already have an account? <a href="#" onclick="closeSignup(); document.getElementById('loginModal').style.display='flex'; return false;">Sign in</a></p>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal">
+        <div class="modal-box">
+            <span class="close" onclick="closeLogin()">&times;</span>
+
+            <h2>Sign In</h2>
+
+            <form id="loginForm">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+
+                <button type="submit" class="btn-primary big full">Sign In</button>
+            </form>
+
+            <p class="small-text">Don't have an account? <a href="#" onclick="closeLogin(); document.getElementById('signupModal').style.display='flex'; return false;">Create one</a></p>
+        </div>
+    </div>
+<script>
+        function closeSignup() {
+            document.getElementById('signupModal').style.display = 'none';
+        }
+        
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        // Handle Sign Up Form Submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Account created successfully!');
+            closeSignup();
+            this.reset();
+        });
+
+        // Handle Login Form Submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login successful!');
+            closeLogin();
+            this.reset();
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            var signupModal = document.getElementById('signupModal');
+            var loginModal = document.getElementById('loginModal');
+            
+            if (event.target == signupModal) {
+                closeSignup();
+            }
+            if (event.target == loginModal) {
+                closeLogin();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('menu-toggle').checked = false;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #501bb4;
+    color: white;
+}
+
+/* =======================
+   NAVBAR
+======================= */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 60px;
+    background: #000000;
+    position: relative;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+    position: absolute;
+    left: 60px;
+}
+
+/* Hide checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Buttons inside mobile menu */
+.mobile-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    position: absolute;
+    right: 60px;
+}
+
+.signin {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #611f69;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-dark {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    right: 60px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 4px 0;
+}
+
+
+
+
+/* =======================
+   HERO
+======================= */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+    background: url("background.png.jpg") center/cover no-repeat;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 8px; /* reduce space so p can tuck in */
+    position: relative;
+}
+
+.hero p {
+    margin-top: 20px;
+    margin-left: 6px;
+    font-size: 18px; 
+    color:#611f69 ;
+
+    display: inline-block;
+    background: rgba(255,255,255,1.0); /* adjust color/opacity */
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+   
+}
+
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.big {
+    padding: 14px 28px;
+    font-size: 16px;
+}
+
+/* HERO MEDIA */
+.hero-image video {
+    width: 550px;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* =======================
+   MODAL
+======================= */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background: rgba(102, 102, 102, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.modal-box .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+        padding: 10px;        
+        border-radius: 5px;
+        transition: background-color 0.3s  ease;
+        z-index: 1001;
+    }
+
+    /* Hide menu by default */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #111;
+        padding: 20px;
+        gap: 15px;
+        z-index: 1000;
+    }
+
+    /* Toggle menu when checkbox is checked */
+    #menu-toggle:checked+.hamburger+.nav-links {
+        display: flex;
+        background-color: black;
+    }
+    #menu-toggle:checked ~ header .nav-links {
+        display: flex;
+    }
+
+    /* Change hamburger color when menu is open */
+    #menu-toggle:checked ~ header .hamburger {
+        background-color: #611f69;
+    }
+
+    /* Stack buttons nicely on mobile */
+    .nav-buttons {
+        position: static;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #333;
+    }
+
+    .nav-buttons button,
+    .nav-buttons a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 16px;
+    }
+
+    .btn-outline {
+        padding: 10px 16px;
+    }
+
+    .btn-primary {
+        padding: 10px 16px;
+    }
+
+    .signin {
+        padding: 10px 16px;
+        display: block;
+    }
+
+    /* Mobile buttons */
+    .mobile-buttons {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 500;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 15px;
+    }
+
+    .logo {
+        left: 15px;
+    }
+
+    .nav-buttons {
+        right: auto;
+    }
+}
+
+@media (min-width: 769px){
+   .overlay {
+    display:none;
+   }
+#menu-toggle {
+        display: none;
+    }
+
+    #menu-toggle:checked ~ header .hamburger {
+        background-color: transparent;
+    }
+
+    #menu-toggle:checked ~ .overlay {
+        display: none !important;
+    }
+
+    #menu-toggle:checked ~ header .nav-links {
+        display: flex !important;
+    }
+}
