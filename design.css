@@ -26,8 +26,9 @@ nav {
 }
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 20px 60px;
     background: #000000;
     position: relative;
@@ -40,7 +41,7 @@ nav {
     color: white;
     position: absolute;
     left: 60px;
- display: block;    
+   display: block;    
     cursor: pointer;
     margin-right: auto;
 }
@@ -85,7 +86,15 @@ nav {
     display: flex;
     gap: 15px;
     align-items: center;
-    right: 60px;
+     list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-buttons li a {
+  text-decoration: none;
+  padding: 8px 12px;
+  display: block;
+  white-space: nowrap;
 }
 
 .signin {
@@ -302,7 +311,6 @@ nav {
         border-top: 1px solid #333;
     }
 
-    .nav-buttons button,
     .nav-buttons a {
         width: 100%;
         text-align: center;
@@ -379,4 +387,9 @@ nav {
 }
 html{
     scroll-behavior: smooth;
+}
+@media (max-width: 768px) {
+  .logo {
+    max-width: 120px;
+  }
 }
