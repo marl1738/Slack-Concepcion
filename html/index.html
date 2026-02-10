@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="icons8-slack-logo-45.png" type="image/png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slack</title>
@@ -15,7 +16,7 @@
     <input type="checkbox" id="menu-toggle">
 
     <header class="navbar">
-        <div class="logo">Slack </div>
+        <div class="logo"></div>
 
         <!-- Hamburger icon -->
         <label for="menu-toggle" class="hamburger">
@@ -26,27 +27,37 @@
 
         <!-- Navigation menu -->
         <nav class="nav-links">
+            <a href="index.html" class="logo">
+             <img src="slacklogo.png" alt="Website Logo"></a>
+
             <a href="features.html">Features</a>
-            <a href= "solutions.html">Solutions</a>
+            <a href="solutions.html">Solutions</a>
             <a href="enterprise.html">Enterprise</a>
             <a href="resources.html">Resources</a>
             <a href="pricing.html">Pricing</a>
 
             <div class="nav-buttons">
-                <a class="signin" href="#" onclick="document.getElementById('loginModal').style.display='flex'; return false;">Sign in</a>
-                <button class="btn-outline" onclick="document.getElementById('loginModal').style.display='flex'">Talk to Sales</button>
-                <button class="btn-primary" onclick="document.getElementById('signupModal').style.display='flex'">Try for Free</button>
+                <a class="signin" href="#"
+                    onclick="document.getElementById('loginModal').style.display='flex'; return false;">Sign in</a>
+                <button class="btn-outline" onclick="document.getElementById('loginModal').style.display='flex'">Talk to
+                    Sales</button>
+                <button class="btn-primary" onclick="document.getElementById('signupModal').style.display='flex'">Try
+                    for Free</button>
             </div>
+       
+            <ul class="nav-links">
+ 
+</ul>
         </nav>
-           <script>
-    function closeSignup() {
-        document.getElementById('signupModal').style.display = 'none';
-    }
-    
-    function closeLogin() {
-        document.getElementById('loginModal').style.display = 'none';
-    }
-</script>
+        <script>
+            function closeSignup() {
+                document.getElementById('signupModal').style.display = 'none';
+            }
+
+            function closeLogin() {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+        </script>
 
     </header>
 
@@ -86,7 +97,9 @@
                 <button type="submit" class="btn-primary big full">Sign Up</button>
             </form>
 
-            <p class="small-text">Already have an account? <a href="#" onclick="closeSignup(); document.getElementById('loginModal').style.display='flex'; return false;">Sign in</a></p>
+            <p class="small-text">Already have an account? <a href="#"
+                    onclick="closeSignup(); document.getElementById('loginModal').style.display='flex'; return false;">Sign
+                    in</a></p>
         </div>
     </div>
 
@@ -104,20 +117,22 @@
                 <button type="submit" class="btn-primary big full">Sign In</button>
             </form>
 
-            <p class="small-text">Don't have an account? <a href="#" onclick="closeLogin(); document.getElementById('signupModal').style.display='flex'; return false;">Create one</a></p>
+            <p class="small-text">Don't have an account? <a href="#"
+                    onclick="closeLogin(); document.getElementById('signupModal').style.display='flex'; return false;">Create
+                    one</a></p>
         </div>
     </div>
-<script>
+    <script>
         function closeSignup() {
             document.getElementById('signupModal').style.display = 'none';
         }
-        
+
         function closeLogin() {
             document.getElementById('loginModal').style.display = 'none';
         }
 
         // Handle Sign Up Form Submission
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Account created successfully!');
             closeSignup();
@@ -125,7 +140,7 @@
         });
 
         // Handle Login Form Submission
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Login successful!');
             closeLogin();
@@ -133,10 +148,10 @@
         });
 
         // Close modals when clicking outside
-        window.addEventListener('click', function(event) {
+        window.addEventListener('click', function (event) {
             var signupModal = document.getElementById('signupModal');
             var loginModal = document.getElementById('loginModal');
-            
+
             if (event.target == signupModal) {
                 closeSignup();
             }
@@ -145,12 +160,13 @@
             }
         });
 
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function () {
             if (window.innerWidth > 768) {
                 document.getElementById('menu-toggle').checked = false;
             }
         });
     </script>
+    <script src="animation.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="icons8-slack-logo-45.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Slack</title>
+    <link rel="stylesheet" href="design.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <input type="checkbox" id="menu-toggle">
+
+    <header class="navbar">
+        <div class="logo"></div>
+
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav-links">
+            <a href="index.html" class="logo">
+             <img src="slacklogo.png" alt="Website Logo"></a>
+
+            <a href="features.html">Features</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="enterprise.html">Enterprise</a>
+            <a href="resources.html">Resources</a>
+            <a href="pricing.html">Pricing</a>
+
+            <div class="nav-buttons">
+                <a class="signin" href="#"
+                    onclick="document.getElementById('loginModal').style.display='flex'; return false;">Sign
+                    in</a>
+                <button class="btn-outline" onclick="document.getElementById('loginModal').style.display='flex'">Talk to
+                    Sales</button>
+                <button class="btn-primary" onclick="document.getElementById('signupModal').style.display='flex'">Try
+                    for Free</button>
+        </nav>
+        <script>
+            function closeSignup() {
+                document.getElementById('signupModal').style.display = 'none';
+            }
+
+            function closeLogin() {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+        </script>
+    </header>
+
+    <div class="overlay" id="overlay"></div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Pricing</h1>
+            <p>Discover all the powerful Pricing Slack offers.</p>
+        </div>
+    </section>
+    <div class="modal" id="signupModal">
+        <div class="modal-box">
+            <span class="close" onclick="closeSignup()">&times;</span>
+
+            <h2>Create Account</h2>
+
+            <form id="signupForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+
+                <button type="submit" class="btn-primary big full">Sign Up</button>
+            </form>
+
+            <p class="small-text">Already have an account? <a href="#"
+                    onclick="closeSignup(); document.getElementById('loginModal').style.display='flex'; return false;">Sign
+                    in</a></p>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal">
+        <div class="modal-box">
+            <span class="close" onclick="closeLogin()">&times;</span>
+
+            <h2>Sign In</h2>
+
+            <form id="loginForm">
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+
+                <button type="submit" class="btn-primary big full">Sign In</button>
+            </form>
+
+            <p class="small-text">Don't have an account? <a href="#"
+                    onclick="closeLogin(); document.getElementById('signupModal').style.display='flex'; return false;">Create
+                    one</a></p>
+        </div>
+    </div>
+    <script>
+        function closeSignup() {
+            document.getElementById('signupModal').style.display = 'none';
+        }
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                document.getElementById('menu-toggle').checked = false;
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('is-loaded');
+        });
+
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest('a');
+            if (!a) return;
+            var href = a.getAttribute('href');
+            if (!href) return;
+            // ignore anchors, external links, mailto, tel, downloads, target="_blank"
+            if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') ||
+                href.startsWith('javascript:') || a.target === '_blank' || a.hasAttribute('download') ||
+                (href.indexOf('http') === 0 && href.indexOf(location.hostname) === -1)) {
+                return;
+            }
+            e.preventDefault();
+            document.body.classList.remove('is-loaded');
+            document.body.classList.add('is-exiting');
+            setTimeout(function () { location.href = href; }, 350);
+        });
+    </script>
+<script src="animation.js"></script>
+</body>
+
+</html>
+
