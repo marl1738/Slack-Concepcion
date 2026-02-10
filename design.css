@@ -25,13 +25,14 @@ nav {
     padding: 15px 30px;
 }
 .navbar {
-    display: flex;
+    display:flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     padding: 20px 60px;
     background: #000000;
     position: relative;
+    
 }
 
 .logo {
@@ -44,6 +45,7 @@ nav {
    display: block;    
     cursor: pointer;
     margin-right: auto;
+    flex-shrink: 0;
 }
 .logo img {
     transition: transform 0.3s ease;
@@ -64,7 +66,7 @@ nav {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-
+flex-shrink: 0;
      flex-wrap: wrap;
     padding: 0;      
     list-style: none;
@@ -89,6 +91,7 @@ nav {
      list-style: none;
   margin: 0;
   padding: 0;
+  flex-shrink: 0;
 }
 .nav-buttons li a {
   text-decoration: none;
@@ -139,7 +142,9 @@ nav {
     border-radius: 5px;
     transition: background-color 0.3s ease;
     position: absolute;
-    right: 60px;
+    top: 10px;
+    right: 20px;
+    margin-left: auto;
     z-index: 1001;
 }
 
